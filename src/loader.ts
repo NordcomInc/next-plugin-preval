@@ -1,13 +1,14 @@
-import fs from 'fs';
-import type webpack from 'webpack';
-import requireFromString from 'require-from-string';
-// @ts-expect-error
-import { resolvePath as defaultResolvePath } from 'babel-plugin-module-resolver';
-import { getOptions } from 'loader-utils';
 import { createMatchPath, loadConfig } from 'tsconfig-paths';
-import isSerializable from './is-serializable';
 // @ts-expect-error
 import register, { revert } from '@babel/register';
+
+// @ts-expect-error
+import { resolvePath as defaultResolvePath } from 'babel-plugin-module-resolver';
+import fs from 'fs';
+import { getOptions } from 'loader-utils';
+import isSerializable from './is-serializable';
+import requireFromString from 'require-from-string';
+import type webpack from 'webpack';
 
 class PrevalError extends Error {}
 
@@ -82,7 +83,7 @@ export async function _prevalLoader(
     // - https://github.com/ricokahler/next-plugin-preval/issues/66
     // - https://github.com/vercel/next.js/blob/37d11008250b3b87dfa4625cd228ac173d4d3563/packages/next/build/babel/preset.ts#L65
     caller: { isServer: true },
-    presets: ['next/babel', ['@babel/preset-env', { targets: 'node 12' }]],
+    presets: ['next/babel', ['@babel/preset-env', { targets: 'node 18' }]],
     plugins: [
       // conditionally add
       ...(moduleResolver ? [moduleResolver] : []),

@@ -11,7 +11,7 @@ describe('isSerializable', () => {
 
     expect(() => isSerializable('filename.ts', ref))
       .toThrowErrorMatchingInlineSnapshot(`
-      "Error serializing \`.self\` returned from \`preval\` in \\"filename.ts\\".
+      "Error serializing \`.self\` returned from \`preval\` in \"filename.ts\".
       Reason: Circular references cannot be expressed in JSON (references: \`(self)\`)."
     `);
   });
@@ -21,7 +21,7 @@ describe('isSerializable', () => {
 
     expect(() => isSerializable('filename.ts', data))
       .toThrowErrorMatchingInlineSnapshot(`
-      "Error serializing \`.foo\` returned from \`preval\` in \\"filename.ts\\".
+      "Error serializing \`.foo\` returned from \`preval\` in \"filename.ts\".
       Reason: \`undefined\` cannot be serialized as JSON. Please use \`null\` or omit this value."
     `);
   });
@@ -33,7 +33,7 @@ describe('isSerializable', () => {
 
     expect(() => isSerializable('filename.ts', data))
       .toThrowErrorMatchingInlineSnapshot(`
-      "Error serializing \`.arr[0][\\"foo!\\"]\` returned from \`preval\` in \\"filename.ts\\".
+      "Error serializing \`.arr[0][\"foo!\"]\` returned from \`preval\` in \"filename.ts\".
       Reason: \`undefined\` cannot be serialized as JSON. Please use \`null\` or omit this value."
     `);
   });
@@ -51,7 +51,7 @@ describe('isSerializable', () => {
 
     expect(() => isSerializable('filename.ts', data))
       .toThrowErrorMatchingInlineSnapshot(`
-      "Error serializing \`.foo\` returned from \`preval\` in \\"filename.ts\\".
+      "Error serializing \`.foo\` returned from \`preval\` in \"filename.ts\".
       Reason: \`symbol\` cannot be serialized as JSON. Please only return JSON serializable data types."
     `);
   });
