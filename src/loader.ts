@@ -72,8 +72,8 @@ export async function _prevalLoader(
           }
 
           return defaultResolvePath(sourcePath, currentFile, opts);
-        },
-      },
+        }
+      }
     ] as const);
 
   register({
@@ -86,7 +86,7 @@ export async function _prevalLoader(
     presets: ['next/babel', ['@babel/preset-env', { targets: 'node 18' }]],
     plugins: [
       // conditionally add
-      ...(moduleResolver ? [moduleResolver] : []),
+      ...(moduleResolver ? [moduleResolver] : [])
     ],
     rootMode: 'upward-optional',
     // TODO: this line may cause performance issues, it makes babel compile
@@ -96,7 +96,7 @@ export async function _prevalLoader(
     ignore: [],
     // disables the warning "Babel has de-optimized the styling of..."
     compact: true,
-    extensions,
+    extensions
   });
 
   const data = await (async () => {

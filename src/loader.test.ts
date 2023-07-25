@@ -120,7 +120,7 @@ describe('_prevalLoader', () => {
       {}
     );
 
-    expect(result.includes('Example Domain')).toBe(true);
+    expect(result.includes('README.md')).toBe(true);
   });
 });
 
@@ -152,7 +152,7 @@ describe('loader', () => {
       {
         async: () => callback,
         cacheable: () => {},
-        resourcePath: require.resolve('./__example-files__/simple.preval.ts'),
+        resourcePath: require.resolve('./__example-files__/simple.preval.ts')
       },
       ''
     );
@@ -175,7 +175,7 @@ describe('loader', () => {
         async: () => callback,
         resource: 'test-resource',
         cacheable: () => {},
-        resourcePath: require.resolve('./__example-files__/throws.preval.ts'),
+        resourcePath: require.resolve('./__example-files__/throws.preval.ts')
       },
       ''
     );

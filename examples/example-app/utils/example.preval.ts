@@ -1,4 +1,4 @@
-import preval from 'next-plugin-preval';
+import preval from '@sweetsideofsweden/next-plugin-preval';
 
 async function getData() {
   await new Promise((resolve) => setTimeout(resolve, 100));
